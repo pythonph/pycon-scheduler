@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+  <title>PyCon Scheduler</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { margin: 0; }
+    body, input, select, button { font: 20px/1.5 sans-serif; }
+    button { border: 0; background: #eee; }
+    h1, h2, h3, h4, h5, p { margin: 0 0 1.5rem; }
+    a { text-decoration: none; color: dodgerblue; }
+    header, section { padding: 0 1.5rem; }
+    header { margin-bottom: 1.5rem; }
+    header > h1 { margin: 0; }
+    footer { font-size: small; padding: 1.5rem; }
+  </style>
+<body>
+  <header>
+    <h1><a href="/">PyCon Scheduler</a></h1>
+  </header>
+  <section>
+    <h2>List cards</h2>
+    <form action="/">
+      <p>
+        <select name="label">
+          <option value="">Select type</option>
+          <option value="Type: Talk">Talks</option>
+          <option value="Type: Workshop">Workshops</option>
+        </select>
+        <button type="submit">Go</button>
+      </p>
+    </form>
+    {% for card in cards %}
+    <h3>{{ card.name }}</h3>
+    <p>{{ card.fields.Speaker }}</p>
+    {% endfor %}
+  </section>
+  <footer>Made by the PyCon PH team</footer>
+
